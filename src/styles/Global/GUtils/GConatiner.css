@@ -1,0 +1,4 @@
+.GContainer {
+  width: var(--container-size);
+  margin-inline: auto;
+}

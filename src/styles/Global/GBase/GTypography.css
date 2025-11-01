@@ -1,0 +1,137 @@
+body {
+   font-family: var(--ff-base);
+
+   /* optional font-family for all tab  */
+   /* font-family: var(--ff-body); */
+   line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+   /* optional font-family for tab h1 - h6 */
+   /* font-family: var(--ff-heading); */
+   line-height: 1.2;
+}
+
+/* 
+
+   text-preset
+
+*/
+
+/* h1 */
+.text-preset-1 {
+   color: var(--clr-text-heading-1);
+   font-size: var(--fs-900);
+   font-weight: 700;
+   line-height: 1.2;
+}
+
+/* h2 */
+.text-preset-2 {
+   color: var(--clr-text-heading-2);
+   font-size: var(--fs-800);
+   font-weight: 700;
+   line-height: 1.2;
+}
+
+/* h3 */
+.text-preset-3 {
+   color: var(--clr-text-heading-3);
+   font-size: var(--fs-700);
+   font-weight: 700;
+   line-height: 1.2;
+}
+
+/* h4 */
+.text-preset-4 {
+   color: var(--clr-text-heading-4);
+   font-size: var(--fs-600);
+   font-weight: 600;
+   line-height: 1.2;
+}
+
+/* h5 */
+.text-preset-5 {
+   color: var(--clr-text-heading-5);
+   font-size: var(--fs-500);
+   font-weight: 600;
+   line-height: 1.2;
+}
+
+/* h6 p */
+.text-preset-6 {
+   color: var(--clr-text-heading-6);
+   font-size: var(--fs-400);
+   font-weight: 600;
+   line-height: 1.4;
+}
+
+/* p */
+.text-preset-7 {
+   color: var(--clr-text-body);
+   font-size: var(--fs-400);
+   font-weight: 400;
+   line-height: 1.6;
+}
+
+/* a p */
+.text-preset-8 {
+   color: var(--clr-text-body);
+   font-size: var(--fs-300);
+   font-weight: 300;
+   line-height: 1.6;
+}
+
+/* samll */
+.text-preset-9 {
+   color: var(--clr-text-body);
+   font-size: var(--fs-200);
+   font-weight: 200;
+   line-height: 1.6;
+}
+
+/* 
+
+   font-size
+
+*/
+
+.fs-200 {font-size: var(--fs-200);}
+.fs-300 {font-size: var(--fs-300);}
+.fs-400 {font-size: var(--fs-400);}
+.fs-500 {font-size: var(--fs-500);}
+.fs-600 {font-size: var(--fs-600);}
+.fs-700 {font-size: var(--fs-700);}
+.fs-800 {font-size: var(--fs-800);}
+.fs-900 {font-size: var(--fs-900);}
+
+/* 
+
+   font-weight
+
+*/
+
+.fw-900 {font-weight: 900;}
+.fw-800 {font-weight: 800;}
+.fw-700 {font-weight: 700;}
+.fw-600 {font-weight: 600;}
+.fw-500 {font-weight: 500;}
+.fw-400 {font-weight: 400;}
+.fw-300 {font-weight: 300;}
+.fw-200 {font-weight: 200;}
+
+/* 
+
+   text-transform
+
+*/
+
+.text-upper {text-transform: uppercase;}
+.text-cap   {text-transform: capitalize;}
+.text-lower {text-transform: lowercase;}

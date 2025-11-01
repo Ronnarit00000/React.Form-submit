@@ -1,0 +1,161 @@
+.CForm {
+  padding-block: 4rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.CForm__CForm-head {
+  font-size: var(--fs-700);
+  font-weight: 700;
+  text-align: center;
+}
+
+.CForm__Form-input {
+  display: grid;
+
+  /* label */
+  & label {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* input */
+  & input {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+  }
+
+  /* hide arrow */
+  & input[type="number"]::-webkit-outer-spin-button,
+  & input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* hide arrow */
+  & input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+.CForm__Form-radio {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: auto auto auto;
+  gap: 0 1rem;
+
+  & span {
+    grid-area: 1 / 1 / 2 / 4;
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+.CForm__Form-checkbox {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: auto auto auto;
+  gap: 0 1rem;
+
+  & span {
+    grid-area: 1 / 1 / 2 / 4;
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+.CForm__Form-file {
+  display: grid;
+
+  & label {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  & fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  & input {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+  }
+}
+
+.CForm__Form-url {
+  display: grid;
+
+  & label {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  & input {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.CForm__Form-select {
+  display: grid;
+
+  & label {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  & select {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.CForm__Form-textarea {
+  display: grid;
+
+  & label {
+    font: inherit;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+.CForm-submit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  & input {
+    padding: 0.75rem 1rem;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}

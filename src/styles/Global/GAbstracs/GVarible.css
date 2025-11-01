@@ -1,0 +1,75 @@
+/* import font: inter */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  /* font-family */
+  --ff-base: "Roboto", sans-serif;
+  /* --ff-body: ; */
+  /* --ff-heading: ; */
+
+  /* font-size */
+  /* fs-900: 42.7246px → 67.3396px */
+  /* fs-800: 34.1797px → 50.5174px */
+  /* fs-700: 27.3438px → 37.8975px */
+  /* fs-600: 21.875px → 28.4302px */
+  /* fs-500: 17.5px → 21.328px */
+  /* fs-400: 14px → 16px */
+  /* fs-300: 11.2px → 12.003px */
+  /* fs-200: 8.96px → 9.0045px */
+
+  --fs-900: clamp(2.6703rem, 2.1109rem + 2.7972vw, 4.2087rem);
+  --fs-800: clamp(2.1362rem, 1.7649rem + 1.8566vw, 3.1573rem);
+  --fs-700: clamp(1.709rem, 1.4691rem + 1.1993vw, 2.3686rem);
+  --fs-600: clamp(1.3672rem, 1.2182rem + 0.7449vw, 1.7769rem);
+  --fs-500: clamp(1.0938rem, 1.0068rem + 0.435vw, 1.333rem);
+  --fs-400: clamp(0.875rem, 0.8295rem + 0.2273vw, 1rem);
+  --fs-300: clamp(0.7rem, 0.6817rem + 0.0913vw, 0.7502rem);
+  --fs-200: clamp(0.56rem, 0.559rem + 0.0051vw, 0.5628rem);
+
+  /* spacing */
+  --size-25: 0.25rem;
+  --size-50: 0.50rem;
+  --size-75: 0.75rem;
+  --size-100: 1rem;
+  --size-150: 1.5rem;
+  --size-200: 2rem;
+  --size-250: 2.5rem;
+  --size-300: 3rem;
+  --size-400: 4rem;
+  --size-500: 5rem;
+  --size-600: 6rem;
+  --size-700: 7rem;
+  --size-800: 8rem;
+  --size-900: 9rem;
+  --size-1000: 10rem;
+
+  /* color */
+  --clr-primry: #0d6efd;
+  --clr-secondary: #6c757d;
+  --clr-success: #198754;
+  --clr-danger: #dc3545;
+  --clr-warning: #ffc107;
+  --clr-info: #0dcaf0;
+  --clr-light: #f8f9fa;
+  --clr-dark: #212529;
+  --clr-bg-base: #fbf9f5f6;
+
+  /* conatiner-size: */
+  --content-size: 30rem;
+  /* 1120px */
+  --container-size: min(100% - var(--size-150) * 2, var(--content-size));
+}
+
+/* Theme */
+body {
+  --clr-text-heading-1: #212529;
+  --clr-text-heading-2: #212529;
+  --clr-text-heading-3: #212529;
+  --clr-text-heading-4: #212529;
+  --clr-text-heading-5: #212529;
+  --clr-text-heading-6: #212529;
+  --clr-text-heading-7: #212529;
+  --clr-text-heading-8: #212529;
+  --clr-text-heading-9: #212529;
+}
