@@ -13,7 +13,6 @@
 .CForm__Form-input {
   display: grid;
 
-  /* label */
   & label {
     font: inherit;
     font-size: var(--fs-400);
@@ -21,7 +20,6 @@
     letter-spacing: 0.5px;
   }
 
-  /* input */
   & input {
     font: inherit;
     font-size: var(--fs-400);
@@ -30,14 +28,12 @@
     padding: 0.5rem 1rem;
   }
 
-  /* hide arrow */
   & input[type="number"]::-webkit-outer-spin-button,
   & input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  /* hide arrow */
   & input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
@@ -50,7 +46,7 @@
   grid-template-columns: auto auto auto;
   gap: 0 1rem;
 
-  & span {
+  & h4 {
     grid-area: 1 / 1 / 2 / 4;
     font: inherit;
     font-size: var(--fs-400);
@@ -145,17 +141,5 @@
     font-size: var(--fs-400);
     font-weight: 500;
     letter-spacing: 0.5px;
-  }
-}
-
-.CForm-submit {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  & input {
-    padding: 0.75rem 1rem;
-    font-size: var(--fs-400);
-    font-weight: 500;
-    cursor: pointer;
   }
 }

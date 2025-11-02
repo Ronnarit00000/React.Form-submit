@@ -1,50 +1,38 @@
-import { useState } from "react"
-import {
-  Form, 
-  Input,
-  Select,
-  Textarea
-} from "./components/Form"
+import { useState } from "react";
 
 export default function App() {
-  const [firstname, setFirstname] = useState("");
-  const [lastname,  setLastname] = useState("");
-  const [email,     setEmail] = useState("");
-  const [contact,   setContact] = useState("");
-  const [gender,    setGender] = useState("male");
-  const [subjects,  setSubjects] = useState(["english"]);
-  const [resume,    setResume] = useState("");
-  const [url,       setUrl] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastname]   = useState("");
+  const [email, setEmail]         = useState("");
+  const [contact, setContact]     = useState("");
+  const [gender, setGender]       = useState("male");
+  const [subjects, setSubjects]   = useState({ english: true, math: false, physics: false });
+  const [resume, setResume] = useState("");
+  const [url, setUrl] =       useState("");
   const [selectedOption, setSelectedOption] = useState("");
-  const [about, setAbout] = useState("");
+  const [about, setAbout]   = useState(""); 
 
-  function handleCheckBox(e){
-    let target = e.target;
-    let name   = target.name;
-    let isSubjects = subjects.some((item) => item === name);
-
-    // create toggle add and delete subject
-    if(!isSubjects){
-      setSubjects((prev) => [...prev, name])
-    }else{
-      setSubjects((prev) => prev.filter((item) => item != name))
-    }
+  const handleCheckbox = (sub) => {
+    setSubjects((prev) => ({
+      ...prev, 
+      [sub]: !prev[sub]
+    }))
   };
 
-  function handleReset(){
-    setFirstname("");
+  const handleReset = () => {
+    setFirstName("");
     setLastname("");
     setEmail("");
     setContact("");
-    setGender("male");
-    setSubjects(["english"]);
+    setGender("");
+    setSubjects({ english: true, math: false, physics: false });
     setResume("");
     setUrl("");
     setSelectedOption("");
     setAbout("");
   };
 
-  function handleSubmit(e){
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
       firstname,
@@ -57,180 +45,215 @@ export default function App() {
       url,
       selectedOption,
       about
-    });
+    })
   };
 
   return (
     <main className="GContainer">
-      <Form className="CForm" onSubmit={handleSubmit}>
+      <form className="CForm" onSubmit={handleSubmit}>
         <h2 className="CForm__CForm-head">Form in React</h2>
-        <Input 
-          type="text"
-          name={{ 
-            className: "CForm__Form-input",
-            id: "firstname", 
-            name: "firstname", 
-            label: "Firstname", 
-            placeholder: "Enter Your Firstname" }} 
-          action={{ 
-            value: firstname, 
-            onChange: (e) => setFirstname(e.target.value) }}
-        />
 
-        <Input 
-          type="text"
-          name={{ 
-            className: "CForm__Form-input", 
-            id: "lasttname", 
-            name: "lastname", 
-            label: "Lastname", 
-            placeholder: "Enter Your Lastname" }} 
-          action={{ 
-            value: lastname, 
-            onChange: (e) => setLastname(e.target.value) }}
-        />
+        {/* Firstname */}
+        <section className="CForm__Form-input">
+          <h4>Firstname</h4>
+          <input 
+            required
+            type="text" 
+            name="firstname" 
+            id="firstname" 
+            placeholder="Enter Firstname" 
+            value={firstname} 
+            onChange={(e) => setFirstName(e.target.value)}/>
+        </section>
 
-        <Input 
-          type="email"
-          name={{ 
-            className: "CForm__Form-input", 
-            id: "email", 
-            name: "email", 
-            label: "Email", 
-            placeholder: "Enter Your Email" }} 
-          action={{ 
-            value: email, 
-            onChange: (e) => setEmail(e.target.value) }}
-        />
+        {/* Lastname */}
+        <section className="CForm__Form-input">
+          <h4>Lastname</h4>
+          <input 
+            required
+            type="text" 
+            name="lastname" 
+            id="lastname" 
+            placeholder="Enter Lastname" 
+            value={lastname} 
+            onChange={(e) => setLastname(e.target.value)}/>
+        </section>
 
-        <Input 
-          type="number"
-          name={{ 
-            className: "CForm__Form-input", 
-            id: "contact", 
-            name: "contact", 
-            label: "Contact", 
-            placeholder: "Enter Your Phone Number" }} 
-          action={{ 
-            value: contact, 
-            onChange: (e) => setContact(e.target.value) }}
-        />
-        
-        <Input 
-          type="radio"
-          name={{ 
-            className: "CForm__Form-radio", 
-            title: "Gender"}}
-          action={{
-            onChange:(e) => setGender(e.target.value),
-            list: [
-              {choose : { 
-                value: "male",   
-                id: "male",   
-                label: "male",   
-                checked: gender === "male" }},
-              {choose : { 
-                value: "female", 
-                id: "female", 
-                label: "female", 
-                checked: gender === "female" }},
-              {choose : { 
-                value: "other",  
-                id: "other",  
-                label: "other",  
-                checked: gender === "other" }}
-            ]
-          }}
-        />
+        {/* Email */}
+        <section className="CForm__Form-input">
+          <h4>Email</h4>
+          <input 
+            required
+            type="email" 
+            name="email" 
+            id="email" 
+            placeholder="Enter Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)}/>
+        </section>
 
-        <Input 
-          type="checkbox"
-          name={{ 
-            className: "CForm__Form-checkbox", 
-            title: "Your best Subject"}}
-          action={{
-            list: [
-              {choose : { 
-                value: "english",  
-                name: "english", 
-                id: "english", 
-                label: "english", 
-                onChange:handleCheckBox, 
-                checked: subjects.some((item) => item === "english")}},
-              {choose : { 
-                value: "math",     
-                name: "math",    
-                id: "math",    
-                label: "math",    
-                onChange:handleCheckBox, 
-                checked: subjects.some((item) => item === "math")}},
-              {choose : { 
-                value: "physice",  
-                name: "physice", 
-                id: "physice", 
-                label: "physice",
-                onChange:handleCheckBox, 
-                checked: subjects.some((item) => item === "physice")}}
-            ]
-          }}
-        />
+        {/* Contact phone number */}
+        <section className="CForm__Form-input">
+          <h4>Contact</h4>
+          <input 
+            required
+            type="number" 
+            name="contact" 
+            id="contact" 
+            placeholder="Enter Phone number" 
+            value={contact} 
+            onChange={(e) => setContact(e.target.value)}/>
+        </section>
 
-        <Input 
-          type="file"
-          name={{
-            className: "CForm__Form-file", 
-            label: "Upload resume", 
-            id:"resume", 
-            name: "resume"}}
-          action={{ 
-            onChange: (e) => setResume(e.target.value)}}
-        />
+        {/* Gender */}
+        <section className="CForm__Form-radio">
+          <h4>Gender</h4>
+          <label htmlFor="male">
+            <input
+              required
+              type="radio" 
+              name="gender" 
+              id="gender" 
+              value="male"
+              checked={gender === "male"}
+              onChange={(e) => setGender(e.target.value)}/>
+            male
+          </label>
 
-        <Input 
-          type="url"
-          name={{
-            className: "CForm__Form-url", 
-            label: "Enter URL", 
-            id: "url", 
-            name: "url", 
-            placeholder:"Enter url"}}
-          action={{
-            value: url,
-            onChange: (e) => setUrl(e.target.value)}}
-       />
+          <label htmlFor="female">
+            <input 
+              required
+              type="radio" 
+              name="gender" 
+              id="gender" 
+              value="female"
+              checked={gender === "female"}
+              onChange={(e) => setGender(e.target.value)}/>
+            female
+          </label>
 
-       <Select 
-          name={{
-            className: "CForm__Form-select", 
-            id:"select", 
-            label: "Select Your Choice"}}
-          action={{
-            list: {
-              Beginers: ["html", "css", "javascript"],
-              Advance: ["react", "node", "express", "mongodb"]
-            },
-            defaultValue:"Select your Ans",
-            value: selectedOption,
-            onChange: (e) => setSelectedOption(e.target.value)}}
-       />
+          <label htmlFor="other">
+            <input 
+              required
+              type="radio" 
+              name="gender" 
+              id="gender" 
+              value="other"
+              checked={gender === "other"}
+              onChange={(e) => setGender(e.target.value)}/>
+            other
+          </label>
+        </section>
 
-       <Textarea 
-          name={{
-            className: "CForm__Form-textarea", 
-            id: "about", 
-            name: "about", 
-            label: "About", 
-            placeholder: "About me"}}
-          action={{
-            value: about,
-            onChange: (e) => setAbout(e.target.value)}}
-       />
+        {/* Subject */}
+        <section className="CForm__Form-checkbox">
+          <h4>Your best Subject</h4>
+          <label htmlFor="english">
+            <input 
+              type="checkbox" 
+              name="english" 
+              id="english" 
+              value="english"
+              checked={subjects.english === true}
+              onChange={() => handleCheckbox("english")}
+              />
+              english
+          </label>
+
+          <label htmlFor="math">
+            <input 
+              type="checkbox" 
+              name="math" 
+              id="math" 
+              value="math"
+              checked={subjects.math === true}
+              onChange={() => handleCheckbox("math")}
+              />
+              math
+          </label>
+
+          <label htmlFor="physics">
+            <input 
+              type="checkbox" 
+              name="physics" 
+              id="physics" 
+              value="physics"
+              checked={subjects.physics === true}
+              onChange={() => handleCheckbox("physics")}
+              />
+              physics
+          </label>
+        </section>
+
+        {/* Resume */}
+        <section className="CForm__Form-input">
+          <h4>Upload Resume</h4>
+          <input 
+            required
+            type="file"
+            name="file"
+            id="file"
+            placeholder="Enter Upload File"
+            onChange={(e) => setResume(e.target.files[0])}
+          />
+        </section>
+
+        {/* Resume */}
+        <section className="CForm__Form-input">
+          <h4>Enter URL</h4>
+          <input 
+            required
+            type="url"
+            name="url"
+            id="url"
+            placeholder="Enter url"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
+        </section>
+
+        {/* select */}
+        <section className="CForm__Form-select">
+          <h4>Select your choice</h4>
+          <select
+            name="select"
+            id="select"
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)} >
+            <option>Select your Ans</option>
+            <optgroup label="Beginers">
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript">JavaScript</option>
+            </optgroup>
+            <optgroup label="Advance">
+              <option value="React">React</option>
+              <option value="Node">Node</option>
+              <option value="Express">Express</option>
+              <option value="MongoDB">MongoDB</option>
+            </optgroup>
+          </select>
+        </section>
+
+        {/* about */}
+        <section className="CForm__Form-select">
+          <h4>Select your About</h4>
+          <textarea
+              name="about"
+              id="about"
+              cols="30"
+              rows="10"
+              value={about}
+              onChange={(e) => setAbout(e.target.value)}
+              placeholder="About your self"
+              required></textarea>
+        </section>
 
         <div className="CForm-submit">
           <input type="button" value="Reset" onClick={handleReset}/>
-          <input type="submit" value="submit"/>
+          <input type="submit" value="submit" />
         </div> 
-      </Form>
+      </form>
     </main>
   )
 }
