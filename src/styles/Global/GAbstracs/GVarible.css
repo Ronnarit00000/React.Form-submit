@@ -56,8 +56,7 @@
   --clr-bg-base: #fbf9f5f6;
 
   /* conatiner-size: */
-  --content-size: 30rem;
-  /* 1120px */
+  --content-size: 80rem;
   --container-size: min(100% - var(--size-150) * 2, var(--content-size));
 }
 
@@ -72,4 +71,7 @@ body {
   --clr-text-heading-7: #212529;
   --clr-text-heading-8: #212529;
   --clr-text-heading-9: #212529;
+
+  --bg-form: var(--clr-light);
+  background: oklch(from #198754 l c h /.95);
 }

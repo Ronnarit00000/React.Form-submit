@@ -1,24 +1,18 @@
 .CForm {
-  padding-block: 4rem;
-  display: grid;
-  gap: 0.5rem;
+  margin-block: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 1rem 1rem oklch(from #000 l c h /.5);
+  background: var(--bg-form);
 }
 
 .CForm__CForm-head {
   font-size: var(--fs-700);
   font-weight: 700;
-  text-align: center;
 }
 
 .CForm__Form-input {
   display: grid;
-
-  & label {
-    font: inherit;
-    font-size: var(--fs-400);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
 
   & input {
     font: inherit;
@@ -26,6 +20,8 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     padding: 0.5rem 1rem;
+    border: 0.125rem solid #000;
+    border-radius: 0.25rem;
   }
 
   & input[type="number"]::-webkit-outer-spin-button,
@@ -47,7 +43,7 @@
   gap: 0 1rem;
 
   & h4 {
-    grid-area: 1 / 1 / 2 / 4;
+    grid-column: span 3;
     font: inherit;
     font-size: var(--fs-400);
     font-weight: 500;
@@ -61,8 +57,8 @@
   grid-template-columns: auto auto auto;
   gap: 0 1rem;
 
-  & span {
-    grid-area: 1 / 1 / 2 / 4;
+  & h4 {
+    grid-column: span 3;
     font: inherit;
     font-size: var(--fs-400);
     font-weight: 500;
@@ -73,24 +69,11 @@
 .CForm__Form-file {
   display: grid;
 
-  & label {
-    font: inherit;
-    font-size: var(--fs-400);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
-  & fieldset {
-    margin: 0;
-    padding: 0;
-  }
-
   & input {
     font: inherit;
     font-size: var(--fs-400);
     font-weight: 500;
     letter-spacing: 0.5px;
-    padding: 0.5rem 1rem;
     width: 100%;
   }
 }
@@ -98,31 +81,20 @@
 .CForm__Form-url {
   display: grid;
 
-  & label {
-    font: inherit;
-    font-size: var(--fs-400);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
-
   & input {
     font: inherit;
     font-size: var(--fs-400);
     font-weight: 500;
     letter-spacing: 0.5px;
     padding: 0.5rem 1rem;
+    border: 0.125rem solid #000;
+    border-radius: 0.25rem;
   }
 }
 
 .CForm__Form-select {
   display: grid;
-
-  & label {
-    font: inherit;
-    font-size: var(--fs-400);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-  }
+  align-content: start;
 
   & select {
     font: inherit;
@@ -130,16 +102,75 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     padding: 0.5rem 1rem;
+    border: 0.125rem solid #000;
+    border-radius: 0.25rem;
   }
 }
 
 .CForm__Form-textarea {
   display: grid;
 
-  & label {
+  & textarea {
     font: inherit;
     font-size: var(--fs-400);
     font-weight: 500;
-    letter-spacing: 0.5px;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 0.125rem solid #000;
+    border-radius: 0.25rem;
+  }
+}
+
+.CForm-submit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  & input {
+    padding: 0.75rem 1rem;
+    font-size: var(--fs-400);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.25em;
+  }
+
+  & input[type="button"] {
+    color: #fff;
+    background: oklch(from grey l c h /.5);
+
+    &:hover {
+      background: oklch(from grey calc(l * 0.75) c h);
+    }
+  }
+
+  & input[type="submit"] {
+    color: #fff;
+    background: oklch(from #198754 l c h /.95);
+
+    &:hover {
+      background: oklch(from #198754 calc(l * 0.75) c h);
+    }
+  }
+}
+
+@media (min-width: 62.5rem) {
+  .CForm {
+    width: min(100%, 60rem);
+    margin-inline: auto;
+    margin-block: 1.5rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem 0.5rem;
+  }
+
+  .CForm .CForm .CForm__CForm-head,
+  .CForm .CForm__Form-input,
+  .CForm .CForm__Form-url,
+  .CForm .CForm__Form-select,
+  .CForm__Form-textarea,
+  .CForm-submit {
+    grid-column: span 3;
   }
 }
